@@ -1,0 +1,22 @@
+<html>
+	 <head>
+	 </head>
+	 
+	 <body>
+	    <h1> Base html: index {{index}}</h1>
+		<h3> 
+		{% if svar2 != True%}
+		   This is true
+		{% endif %}
+		</h3>
+		
+		<font style="color:red">
+		   {% block content2 %}
+		      Parent template
+			  <a href="/home">Home</a>
+		   {% endblock content2 %}
+		</font>
+	 
+	 
+	 </body>
+	</html>
