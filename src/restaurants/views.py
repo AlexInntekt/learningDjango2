@@ -1,5 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render
+from django.views import View
 
 
 def homeOnTheSpot(request):
@@ -29,10 +30,16 @@ def home2(request):
    
 def home3(request):
    return render(request, "home3.html", contextThree)
+
+'''   
+class ContactView(View):
+ def get(self, request, *args, **kwargs):
+   context = {}
+   return render(request, "contact.html", context)
+'''  
    
-         
    
-   
+
    
    
    
