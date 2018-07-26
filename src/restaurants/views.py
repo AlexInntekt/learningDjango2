@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.views import View
+from django.views.generic.base import TemplateView
 
 
 def homeOnTheSpot(request):
@@ -31,16 +32,26 @@ def home2(request):
 def home3(request):
    return render(request, "home3.html", contextThree)
 
- 
+'''
 class ContactView(View):
  def get(self, request, *args, **kwargs):
    context = {}
-   print kwargs
+   print(kwargs)
    return render(request, "home3.html", context)
+'''
 
+class ContactView(TemplateView):
+  template_name = 'home3.html'
+
+class ContactTemplateView(TemplateView):
+  template_name = 'home3.html'
+  
+  def get_context_data(self, *args, **kwargs):
+      context = super(TemplateView, self).get_context_data(*args, **kwargs)
+      print("▲ Context: ▲ ",context)
+      return context
    
    
-
    
    
    
