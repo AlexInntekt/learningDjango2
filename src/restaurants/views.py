@@ -3,6 +3,8 @@ from django.shortcuts import render
 from django.views import View
 from django.views.generic.base import TemplateView
 
+#for fetching saved data:
+from .models import RestaurantsLocation
 
 def homeOnTheSpot(request):
  html_var = '398'
@@ -32,6 +34,15 @@ def home2(request):
 def home3(request):
    return render(request, "home3.html", contextThree)
 
+def restaurants_listview(request):
+      template_name = 'restaurants/restaurants_list.html'
+      queryset = RestaurantsLocation.objects.all()
+      context = { "objects_list": queryset }
+      return render(request, template_name, context)
+   
+      
+   
+   
 '''
 class ContactView(View):
  def get(self, request, *args, **kwargs):
@@ -51,8 +62,7 @@ class ContactTemplateView(TemplateView):
       print("▲ Context: ▲ ",context)
       return context
    
-   
-   
+
    
    
    

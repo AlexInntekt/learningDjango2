@@ -18,12 +18,15 @@ from django.urls import path
 
 from restaurants.views import home, home2, home3, ContactTemplateView
 
+from restaurants.views import restaurants_listview
+
 urlpatterns = [
     path('admin/', admin.site.urls),
 	path('home',home, name='home'),
 	path('home2',home2, name='home2'),
 	path('home3',home3, name='home3'),
 	path('ContactTemplateView/',ContactTemplateView.as_view(), name='ContactTemplateView'),
+    path('restaurants',restaurants_listview, name='restaurants_listview'),
 ]
 
 

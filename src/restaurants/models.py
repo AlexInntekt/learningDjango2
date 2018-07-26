@@ -9,3 +9,14 @@ class RestaurantsLocation(models.Model):
    time_stamp    = models.DateTimeField(auto_now=False, auto_now_add=False, null=True)
    updated       = models.DateTimeField(auto_now=True)
    #my_date_field = models.DateField(auto_now=False, auto_now_add=False)
+
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   

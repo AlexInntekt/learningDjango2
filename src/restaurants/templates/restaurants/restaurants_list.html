@@ -1,0 +1,5 @@
+<h1> Restaurants list </h1>
+
+{% for item in objects_list %}
+    <li>{{ item.name }} {{ item.location }} {{ item.category }}</li> 
+{% endfor %}
