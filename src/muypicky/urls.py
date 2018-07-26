@@ -16,18 +16,18 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from restaurants.views import home, home2, home3#, ContactView
+from restaurants.views import home, home2, home3, ContactView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
 	path('home',home, name='home'),
 	path('home2',home2, name='home2'),
 	path('home3',home3, name='home3'),
-	#path('ContactView/<int:id>',ContactView.as_view, name='ContactView'),
+	path('ContactView/<int:id>/',ContactView.as_view(), name='ContactView'),
 ]
 
 
-
+#/<int:id>
 
 
 
