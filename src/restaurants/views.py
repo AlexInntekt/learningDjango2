@@ -3,6 +3,7 @@ from django.shortcuts import render
 from django.views import View
 from django.views.generic.base import TemplateView
 from django.views.generic.list import ListView
+from django.db.models import Q
 
 #for fetching saved data:
 from .models import RestaurantsLocation
@@ -84,11 +85,19 @@ class ItalianRestaurantsListView(ListView):
                    "object_list" : queryset
       }	  
 	  
-
-	  
-	  
-   
+class SearchSpecific(ListView):
+    template_name = 'restaurants/restaurants_list.html'
+ 
+    def get_queryset(self):
+      print("▲ self.kwargs: ", self.kwargs , " ▲" )	
+      slug = self.kwargs.get("slug")
+      if slug:
+        queryset = RestaurantsLocation.objects.filter(Q(category__icontains=slug))
+      else:
+        queryset = RestaurantsLocation.objects.none()	  
       
+      return queryset
+
    
    
    

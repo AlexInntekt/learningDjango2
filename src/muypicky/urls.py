@@ -24,6 +24,7 @@ ContactTemplateView,
 RestaurantsListView,
 MexicanRestaurantsListView,
 ItalianRestaurantsListView,
+SearchSpecific,
 )
 
 from restaurants.views import restaurants_listview
@@ -34,14 +35,14 @@ urlpatterns = [
 	path('home2',home2, name='home2'),
 	path('home3',home3, name='home3'),
 	path('ContactTemplateView/',ContactTemplateView.as_view(), name='ContactTemplateView'),
-    path('list', RestaurantsListView.as_view(), name='RestaurantsListView'),# path('restaurants',restaurants_listview, name='restaurants_listview'),'''
+    path('listAll', RestaurantsListView.as_view(), name='RestaurantsListView'),# path('restaurants',restaurants_listview, name='restaurants_listview'),'''
     path('listMexican', MexicanRestaurantsListView.as_view(), name='MexicanRestaurantsListView'),
     path('listItalian', ItalianRestaurantsListView.as_view(), name='ItalianRestaurantsListView'),
+    path('search/<slug:slug>', SearchSpecific.as_view(), name='SearchSpecific'),
 ]
-
-
-# ItalianRestaurantsListView
-# MexicanRestaurantsListView
+#?P<slug>\w+
+#?P<slug>[\w-]+
+#SearchSpecific
 
 
 
