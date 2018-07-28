@@ -2,6 +2,7 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from django.views import View
 from django.views.generic.base import TemplateView
+from django.views.generic.list import ListView
 
 #for fetching saved data:
 from .models import RestaurantsLocation
@@ -62,13 +63,32 @@ class ContactTemplateView(TemplateView):
       print("▲ Context: ▲ ",context)
       return context
    
+class RestaurantsListView(ListView):
+      queryset = RestaurantsLocation.objects.all()
+      template_name = 'restaurants/restaurants_list.html'
+      context = {
+                   "object_list" : queryset
+      }
+	  
+class MexicanRestaurantsListView(ListView):
+      queryset = RestaurantsLocation.objects.filter(category__iexact='mexican')
+      template_name = 'restaurants/restaurants_list.html'
+      context = {
+                   "object_list" : queryset
+      }
+	  
+class ItalianRestaurantsListView(ListView):
+      queryset = RestaurantsLocation.objects.filter(category__iexact='italian')
+      template_name = 'restaurants/restaurants_list.html'
+      context = {
+                   "object_list" : queryset
+      }	  
+	  
 
+	  
+	  
    
-   
-   
-   
-   
-   
+      
    
    
    
